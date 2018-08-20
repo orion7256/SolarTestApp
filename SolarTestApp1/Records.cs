@@ -14,7 +14,7 @@ namespace SolarTestApp1
         {
             if (Tasks == null)
                 return;
-            if (Tasks.Count>0)
+            if (Tasks.Count > 0)
             {
                 Task.ShowTop();
                 for (int i = 0; i < Tasks.Count; i++)
@@ -67,8 +67,23 @@ namespace SolarTestApp1
                     Tasks[--num].Description = desc;
                     Console.WriteLine("Success");
                 }
-                
             }
+        }
+        public static void save_data(string file = "file.bin")
+        {
+            Data2 d2 = new Data2();
+            SerializableObject obj = new SerializableObject();
+            obj.Data2 = d2;
+            MySerializer serializer = new MySerializer();
+            serializer.SerializeObject(file, obj);
+        }
+        public static void load_data(string file = "file.bin")
+        {
+            if (file == "")
+                return;
+            MySerializer serializer = new MySerializer();
+            Data2 d2 = serializer.DeserializeObject(file).Data2;
+            Tasks = d2.tasks;
         }
     }
 }

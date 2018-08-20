@@ -92,9 +92,10 @@ namespace SolarTestApp1
                     case 1: Records.Add(); break;
                     case 2: Records.Remove(); break;
                     case 3: Records.Edit(); break;
-                    /*
-                case 5: Records.Add(); break;
-                case 6: Records.Remove(); break;
+
+                case 4: Records.save_data(); break;
+                case 5: Records.load_data(); break;
+                        /*
                 case 7: Records.Edit(); break;
                 case 8: Records.Edit(); break;
                 */

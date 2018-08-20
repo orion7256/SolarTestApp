@@ -12,12 +12,11 @@ namespace SolarTestApp1
         static void Main(string[] args)
         {
             Records.Tasks = new List<Task>();
-            Records.Tasks.Add(new Task("dsfgd"));
+            /*Records.Tasks.Add(new Task("dsfgd"));
             Records.Tasks.Add(new Task("dsfdsfggd"));
-            Records.Tasks.Add(new Task("dsfsdfgd"));
+            Records.Tasks.Add(new Task("dsfsdfgd"));*/
             Interface I = new Interface();
-
-
+     
         }
 
     }

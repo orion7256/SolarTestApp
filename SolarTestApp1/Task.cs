@@ -2,7 +2,8 @@
 
 namespace SolarTestApp1
 {
-    class Task
+    [Serializable]
+    public class Task
     {
         public static int lastid = 0;
         private int id;
@@ -34,7 +35,6 @@ namespace SolarTestApp1
                 ret += Id + "   |";
             ret += Date.ToShortDateString() + " " + Date.ToShortTimeString() + " |";
             ret += Description;
-            //ret += "\n";
             Console.WriteLine(ret);
         }
     }
