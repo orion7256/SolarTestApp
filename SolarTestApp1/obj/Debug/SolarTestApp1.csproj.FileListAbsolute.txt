@@ -1,0 +1,6 @@
+c:\users\orion\documents\visual studio 2017\Projects\SolarTestApp1\SolarTestApp1\obj\Debug\SolarTestApp1.csprojResolveAssemblyReference.cache
+c:\users\orion\documents\visual studio 2017\Projects\SolarTestApp1\SolarTestApp1\bin\Debug\SolarTestApp1.exe.config
+c:\users\orion\documents\visual studio 2017\Projects\SolarTestApp1\SolarTestApp1\bin\Debug\SolarTestApp1.exe
+c:\users\orion\documents\visual studio 2017\Projects\SolarTestApp1\SolarTestApp1\bin\Debug\SolarTestApp1.pdb
+c:\users\orion\documents\visual studio 2017\Projects\SolarTestApp1\SolarTestApp1\obj\Debug\SolarTestApp1.exe
+c:\users\orion\documents\visual studio 2017\Projects\SolarTestApp1\SolarTestApp1\obj\Debug\SolarTestApp1.pdb
