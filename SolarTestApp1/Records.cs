@@ -67,7 +67,7 @@ namespace SolarTestApp1
                 }
             }
         }
-        public static void save_data(string file = "file.bin")
+        public static void save_data(string file = "file.binf")
         {
             Data2 d2 = new Data2();
             SerializableObject obj = new SerializableObject();
@@ -77,7 +77,7 @@ namespace SolarTestApp1
             Console.WriteLine("Data saved to file: " + file);
             Console.ReadKey();
         }
-        public static void load_data(string file = "file.bin")
+        public static void load_data(string file = "file.binf")
         {
             if (file == "")
                 return;
