@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SolarTestApp1
 {
@@ -71,7 +72,6 @@ namespace SolarTestApp1
             serializer.SerializeObject(file, obj);
             Console.WriteLine("Data saved to file: " + file);
             Console.ReadKey();
-
         }
         public static void load_data(string file = "file.bin")
         {
@@ -79,7 +79,8 @@ namespace SolarTestApp1
                 return;
             MySerializer serializer = new MySerializer();
             Data2 d2 = serializer.DeserializeObject(file).Data2;
-            Tasks = d2.tasks;
+            Tasks = new List<Task>(Tasks.Union(d2.tasks));
+            //Tasks = d2.tasks;
             Task.lastid = Tasks[Tasks.Count - 1].Id;
             Console.WriteLine("Data loaded from file: " + file);
             Console.ReadKey();
