@@ -17,7 +17,6 @@ namespace SolarTestApp1
         {
             this.tasks = (List<Task>)sInfo.GetValue("tasks", typeof(List<Task>));
         }
-
         public void GetObjectData(SerializationInfo sInfo, StreamingContext contextArg)
         {
             sInfo.AddValue("tasks", this.tasks);

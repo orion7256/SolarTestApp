@@ -12,20 +12,17 @@ namespace SolarTestApp1
         }
         public static void View()
         {
-            if (Tasks == null)
-                return;
+            check(0);
             if (Tasks.Count > 0)
             {
                 Task.ShowTop();
                 for (int i = 0; i < Tasks.Count; i++)
-                    Tasks[i].Show();
+                    Tasks[i].Show(i+1);
                 Console.ReadKey();
             }
         }
         public static void Add()
         {
-            if (Tasks == null)
-                Init();
             Console.WriteLine("Record adding: " + DateTime.Today.ToShortDateString() + "\n");
             string desc = Console.ReadLine();
             if (desc != "")
@@ -36,13 +33,11 @@ namespace SolarTestApp1
         }
         public static void Remove()
         {
-            if (Tasks == null)
-                return;
             View();
             Console.WriteLine("Enter record number to remove:\n");
             int num = -1;
             Int32.TryParse(Console.ReadLine(), out num);
-            if ((num != -1) || (num < Tasks.Count))
+            if (check(num))
             {
                 Tasks.RemoveAt(--num);
                 Console.WriteLine("Success");
@@ -50,13 +45,11 @@ namespace SolarTestApp1
         }
         public static void Edit()
         {
-            if (Tasks == null)
-                return;
             View();
             Console.WriteLine("Enter record number to edit:\n");
             int num;
             Int32.TryParse(Console.ReadLine(), out num);
-            if ((num != -1) || (num < Tasks.Count))
+            if (check(num))
             {
                 Console.WriteLine("Old description: " + Tasks[--num].Description);
                 Console.Write("Enter new description: ");
@@ -76,6 +69,9 @@ namespace SolarTestApp1
             obj.Data2 = d2;
             MySerializer serializer = new MySerializer();
             serializer.SerializeObject(file, obj);
+            Console.WriteLine("Data saved to file: " + file);
+            Console.ReadKey();
+
         }
         public static void load_data(string file = "file.bin")
         {
@@ -84,6 +80,21 @@ namespace SolarTestApp1
             MySerializer serializer = new MySerializer();
             Data2 d2 = serializer.DeserializeObject(file).Data2;
             Tasks = d2.tasks;
+            Task.lastid = Tasks[Tasks.Count - 1].Id;
+            Console.WriteLine("Data loaded from file: " + file);
+            Console.ReadKey();
+        }
+        private static bool check(int number_toCheck)
+        {
+            if (Tasks == null)
+                Init();
+            if (Tasks.Count == 0)
+                return false;
+            if (Tasks.Count <= number_toCheck)
+                return false;
+            if (number_toCheck<=0)
+                return false;
+            return true;
         }
     }
 }

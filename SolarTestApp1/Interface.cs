@@ -9,26 +9,37 @@ namespace SolarTestApp1
 {
     class Interface
     {
+        public string source = "";
         public Interface()
         {
             Console.Clear();
-            Console.Title = "Tasklist";
+            Console.Title = "Tasklist Korotkov A.A.";
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
-            //while(true)
-                main_menu();
+            /*
+            Console.WriteLine("Выберите режим работы:");
+            Console.WriteLine("1-Файлы / 2-SQL DB");
+            string tmp_result = Console.ReadLine();
+            if (tmp_result == "1")
+                source = "file.bin";
+            else
+                if (tmp_result == "2")
+                    source = "mydb @ localhost";
+            else
+                Environment.Exit(0);
+                */
+            main_menu();
         }
         private void main_menu()
         {
             int Item = 0;
-            string[] mark = new string[9];
-            for (int f = 0; f < 9; f++) mark[f] = "  ";//init
+            string[] mark = new string[7];
+            for (int f = 0; f < 7; f++) mark[f] = "  ";//init
 
             while (true)
             {
                 Console.Clear();
                 mark[Item] = "[>";
-
                 Console.WriteLine(        "+-+-----------------------------+");
                 Console.WriteLine(        "| |            Меню             |");
                 Console.WriteLine(        "+-+-----------------------------+");
@@ -38,21 +49,16 @@ namespace SolarTestApp1
                 Console.WriteLine(mark[3] + "|  4-Редактирование записи    |");
                 Console.WriteLine(mark[4] + "|  5-Сохранение в файл        |");
                 Console.WriteLine(mark[5] + "|  6-Загрузка из файла        |");
-                Console.WriteLine(mark[6] + "|  7-Сохранение в БД          |");
-                Console.WriteLine(mark[7] + "|  8-Загрузка из БД           |");
-                Console.WriteLine(mark[8] + "|  0-Выход (Esc)              |");
+                Console.WriteLine(mark[6] + "|  0-Выход (Esc)              |");
                 Console.WriteLine(        "+-+-----------------------------+");
 
                 ConsoleKeyInfo ReadKey = Console.ReadKey(true);
-                /* int a;
-                do a = getch();*/
-                //while (a == 224) ;
                 switch (ReadKey.Key)
                 {
                     case ConsoleKey.DownArrow:
                         {
                             mark[Item] = "  ";
-                            if (Item < 8) Item++;
+                            if (Item < 6) Item++;
                             else Item = 0;
                             break;
                         }
@@ -60,7 +66,7 @@ namespace SolarTestApp1
                         {
                             mark[Item] = "  ";
                             if (Item > 0) Item--;
-                            else Item = 8;
+                            else Item = 6;
                             break;
                         }
                     case ConsoleKey.Enter:
@@ -92,13 +98,9 @@ namespace SolarTestApp1
                     case 1: Records.Add(); break;
                     case 2: Records.Remove(); break;
                     case 3: Records.Edit(); break;
-
-                case 4: Records.save_data(); break;
-                case 5: Records.load_data(); break;
-                        /*
-                case 7: Records.Edit(); break;
-                case 8: Records.Edit(); break;
-                */
+                    case 4: Records.save_data(); break;
+                    case 5: Records.load_data(); break;
+                    case 6: Environment.Exit(0); break;
                     default: break;
                 }
         }

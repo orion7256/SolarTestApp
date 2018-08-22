@@ -22,13 +22,17 @@ namespace SolarTestApp1
         public static void ShowTop()
         {
             string ret = "";
-            ret += "ID   |Date             |Description\n";
-            ret += "===================================\n";
+            ret += "Num|ID   |Date             |Description\n";
+            ret += "=======================================\n";
             Console.WriteLine(ret);
         }
-        public void Show()
+        public void Show(int num = 0)
         {
             string ret = "";
+            if (num < 10)
+                ret += num + "  |";
+            else
+                ret += num + " |";
             if (Id < 10)
                 ret+= Id + "    |";
             else
