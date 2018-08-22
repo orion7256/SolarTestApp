@@ -11,7 +11,7 @@ namespace SolarTestApp1
         {
             Tasks = new List<Task>();
         }
-        public static void View()
+        public static void View(bool wait_flag = true)
         {
             check(0);
             if (Tasks.Count > 0)
@@ -19,7 +19,8 @@ namespace SolarTestApp1
                 Task.ShowTop();
                 for (int i = 0; i < Tasks.Count; i++)
                     Tasks[i].Show(i+1);
-                Console.ReadKey();
+                if(wait_flag)
+                    Console.ReadKey();
             }
         }
         public static void Add()
@@ -34,31 +35,34 @@ namespace SolarTestApp1
         }
         public static void Remove()
         {
-            View();
+            View(false);
             Console.WriteLine("Enter record number to remove:\n");
-            int num = -1;
+            int num;
             Int32.TryParse(Console.ReadLine(), out num);
             if (check(num))
             {
-                Tasks.RemoveAt(--num);
+                num--;
+                Tasks.RemoveAt(num);
                 Console.WriteLine("Success");
             }
         }
         public static void Edit()
         {
-            View();
+            View(false);
             Console.WriteLine("Enter record number to edit:\n");
             int num;
             Int32.TryParse(Console.ReadLine(), out num);
+
             if (check(num))
             {
-                Console.WriteLine("Old description: " + Tasks[--num].Description);
+                num--;
+                Console.WriteLine("Old description: " + Tasks[num].Description);
                 Console.Write("Enter new description: ");
                 string desc = "";
                 desc = Console.ReadLine();
                 if (desc != "")
                 {
-                    Tasks[--num].Description = desc;
+                    Tasks[num].Description = desc;
                     Console.WriteLine("Success");
                 }
             }
@@ -91,7 +95,7 @@ namespace SolarTestApp1
                 Init();
             if (Tasks.Count == 0)
                 return false;
-            if (Tasks.Count <= number_toCheck)
+            if (Tasks.Count < number_toCheck)
                 return false;
             if (number_toCheck<=0)
                 return false;

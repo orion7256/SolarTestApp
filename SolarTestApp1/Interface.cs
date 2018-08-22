@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace SolarTestApp1
 {
@@ -40,9 +36,9 @@ namespace SolarTestApp1
             {
                 Console.Clear();
                 mark[Item] = "[>";
-                Console.WriteLine(        "+-+-----------------------------+");
-                Console.WriteLine(        "| |            Меню             |");
-                Console.WriteLine(        "+-+-----------------------------+");
+                Console.WriteLine("+-+-----------------------------+");
+                Console.WriteLine("| |            Меню             |");
+                Console.WriteLine("+-+-----------------------------+");
                 Console.WriteLine(mark[0] + "|  1-Просмотр записей         |");
                 Console.WriteLine(mark[1] + "|  2-Добавление записи        |");
                 Console.WriteLine(mark[2] + "|  3-Удаление записи          |");
@@ -50,7 +46,7 @@ namespace SolarTestApp1
                 Console.WriteLine(mark[4] + "|  5-Сохранение в файл        |");
                 Console.WriteLine(mark[5] + "|  6-Загрузка из файла        |");
                 Console.WriteLine(mark[6] + "|  0-Выход (Esc)              |");
-                Console.WriteLine(        "+-+-----------------------------+");
+                Console.WriteLine("+-+-----------------------------+");
 
                 ConsoleKeyInfo ReadKey = Console.ReadKey(true);
                 switch (ReadKey.Key)
@@ -76,7 +72,6 @@ namespace SolarTestApp1
 
                             break;
                         }
-
                     case ConsoleKey.Escape:
                         {
                             Console.WriteLine("Выход");
@@ -84,7 +79,6 @@ namespace SolarTestApp1
                             Environment.Exit(0);
                             break;
                         }//esc
-
                     default: break;
                 }
             }
